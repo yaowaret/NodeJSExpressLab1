@@ -4,9 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js",
-    "start2": "node conectDB.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,5 +15,8 @@
     "express": "^4.16.4",
     "express-http-proxy": "^1.5.0",
     "mongoose": "^5.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
   }
 }

@@ -1,48 +1,24 @@
-var express = require('express');
+var express = require("express");
 var app = express();
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var User = require('./user');
+var bodyParser = require("body-parser");
 
-var db = 'mongodb://localhost/NewConnection';
+// var mongoose = require("mongoose");
+// var db = "mongodb://localhost/test";
+// mongoose.connect(db, {
+//     useNewUrlParser: true
+// });
 
-mongoose.connect(db);
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+app.get("/", function (req, res) {
+    res.send("happy to be here");
+});
+
+app.post("/test", function (req, res) {
+    res.send("Ugh, i hate Mondays!");
+});
 
 var port = 3000;
-
-app.use(bodyParser());
-
-
-app.get('/', function (req, res) {
-    res.send('happy to be here');
-});
-
-app.post('/test', function (req, res) {
-    console.log(req.body)
-
-    res.send('Ugh, i hate Mondays!');
-});
-
-app.get('/users', function (req, res) {
-    console.log('getting all user');
-    User.find({})
-    expect(function (err, users) {
-        if (err) {
-            res.send('error has occured');
-        } else {
-            console.log(users);
-            res.json(users);
-        }
-    });
-});
-
-app.listen(port, () => {
-    console.log('Example app listening on port ' + port);
-});
-
-// User.init()
-
-// app.get('/item/', (req, res) => {
-//     res.send({ items: User.getAllItems() })
-// })
-
+app.listen(port, () => {});
