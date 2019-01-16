@@ -1,0 +1,12 @@
+db.users.insert({
+    location: 'Naresuan University',
+    name : 'Pooklook'
+})
+db.users.insert({
+    location: 'Naresuan University',
+    name : 'Picnic'
+})
+db.users.insert({
+    location: 'Naresuan University',
+    name : 'Filmmy'
+})
