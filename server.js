@@ -45,7 +45,11 @@ app.post("/saveuser", function (req, res) {
 
 //update a user in the db
 app.put("/updateuser/:id", function (req, res) {
-    res.send({ type: 'PUT' });
+    User.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
+        User.findOne({_id: req.params.id}).then(function(user){
+            res.send(user);
+        })
+    })
 });
 
 //delete a user from the db 
