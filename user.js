@@ -3,26 +3,15 @@ var Schema = mongoose.Schema;
 
 
 var userSchema = new Schema({
- location: String,
- name: String
+    name: {
+        type: String,
+        required: [true, 'Name field is required']
+    },
+    location: {
+        type: String,
+    }
 });
 
-module.exports = mongoose.model('User', userSchema);
+var User = mongoose.model('user', userSchema);
+module.exports = User;
 
-// let items = []
-// module.exports = {
-//     init: () => {
-//         items = ['Init item']
-//     }
-// };
-// const User = require('./user');
-
-// const newUser = new User({
-//     name: 'Pooklook',
-//     location: 'Naresuan university'
-// });
-// newUser.save(function (err) {
-//     if (err) throw err;
-
-//     console.log('User saved successfully!');
-// });
