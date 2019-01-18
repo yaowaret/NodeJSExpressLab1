@@ -32,10 +32,10 @@ app.get("/test", function (req, res) {
 app.post("/saveuser", function (req, res) {
     console.log('req.body', req.body)
     var newuser = new Schema.User({
-        name: req.body.user,
-        email: req.body.user,
-        age: req.body.user,
-        location: req.body.user
+        name: req.body.name,
+        email: req.body.email,
+        age: req.body.age,
+        location: req.body.location
     })
     newuser.save(function (err) {
         if (err) {
@@ -44,7 +44,6 @@ app.post("/saveuser", function (req, res) {
         } else {
             console.log('save user complete!!')
             res.send('yyyyyy');
-
         }
     })
 });
