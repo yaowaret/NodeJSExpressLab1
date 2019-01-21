@@ -24,8 +24,17 @@ app.get("/", function (req, res) {
 });
 
 //get a new user to the db
-app.get("/test", function (req, res) {
-    res.send({ type: 'GET' });
+app.get("/usersList", function (req, res) {
+    Schema.User.find({}).then(function (users) {
+        res.send(users);
+        });
+});
+
+//get a new location to the db
+app.get("/getlocation", function (req, res){
+    Schema.studentLocation.find({}).then(function (locaions){
+        res.send(locaions);
+    });
 });
 
 //add a new user to the db
@@ -64,17 +73,9 @@ app.post("/addlocation", function (req, res) {
 
         }
     })
-})
+});
 
-app.post("/getlocation", () => {
-    Schema.studentLocation.find().then((err, result => {
-        if (err) {
-            res.send('Not Found')
-        } else {
-            res.send(result)
-        }
-    }))
-})
+
 
 //update a user in the db
 app.put("/updateuser/:id", function (req, res) {
